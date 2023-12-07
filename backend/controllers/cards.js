@@ -9,7 +9,7 @@ const ForbiddenError = require('../errors/forbidden-error');
 
 const getCards = async (req, res, next) => {
   try {
-    const cards = await Card.find({});
+    const cards = await Card.find({}).sort({createdAt: -1});
     return res.send(cards);
   } catch (error) {
     return next(error);
