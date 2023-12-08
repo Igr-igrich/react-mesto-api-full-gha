@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require("cors");
 const ViteExpress = require('vite-express');
 require('dotenv').config();
+const { PORT = 3000, MONGO_URL = "mongodb://127.0.0.1:27017/mestodb" } = process.env;
 const { errors } = require('celebrate');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
@@ -16,7 +17,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const app = express();
 
 mongoose
-  .connect(process.env.MONGO_URL, {
+  .connect(MONGO_URL, {
     useNewUrlParser: true,
   })
   .then(() => {
@@ -47,4 +48,4 @@ app.use("/*", (req, res, next) => {
 app.use(errorLogger);
 app.use(errorHandler);
 
-ViteExpress.listen(app, process.env.PORT, () => console.log(`Server is listening on port ${process.env.PORT}...`));
+ViteExpress.listen(app, PORT, () => console.log(`Server is listening on port ${PORT}...`));
