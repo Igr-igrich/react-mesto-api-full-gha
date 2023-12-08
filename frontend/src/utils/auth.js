@@ -53,5 +53,5 @@ class Auth {
 }
 
 export const auth = new Auth({
-  baseUrl: 'https://igor.nomoredomainsmonster.ru'
+  baseUrl: 'https://api.igor.nomoredomainsmonster.ru'
 });
