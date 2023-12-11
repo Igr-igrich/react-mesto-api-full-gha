@@ -38,22 +38,6 @@ const createUser = async (req, res, next) => {
   }
 };
 
-// const login = (req, res, next) => {
-//   const { email, password } = req.body;
-
-//   UserModel.findUserByCredentials(email, password)
-//     .then((user) => {
-//       const token = jwt.sign(
-//         { _id: user._id },
-//         NODE_ENV === "production" ? JWT_SECRET : "super_secret_key",
-//         { expiresIn: "7d" },
-//         null,
-//       );
-//       res.send({ token });
-//     })
-//     .catch(next);
-// };
-
 const login = async (req, res, next) => {
   const { email, password } = req.body;
   try {
