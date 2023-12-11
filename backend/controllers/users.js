@@ -67,14 +67,6 @@ const login = async (req, res, next) => {
 
     const token = generateToken({ _id: user._id });
 
-    // res.cookie('jwt', token, {
-    //   maxAge: 3600000,
-    //   httpOnly: true,
-    //   sameSite: true,
-    // })
-
-    // return res.status(SUCCESS).send({ token })
-
     res.status(SUCCESS).send({ token })
 
   } catch (error) {
