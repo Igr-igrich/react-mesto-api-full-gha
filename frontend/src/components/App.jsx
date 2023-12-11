@@ -103,7 +103,6 @@ export default function App() {
         if (res) {
           localStorage.setItem("jwt", res.token);
           localStorage.setItem("email", email);
-          localStorage.setItem("password", password);
           setLoggedIn(true);
           navigate("/", { replace: true });
         }

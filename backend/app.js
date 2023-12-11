@@ -1,18 +1,17 @@
 const express = require('express');
-const cors = require("cors");
+const cors = require('cors');
 const ViteExpress = require('vite-express');
 require('dotenv').config();
-const { PORT = 3000, MONGO_URL = "mongodb://127.0.0.1:27017/mestodb" } = process.env;
+
+const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const { errors } = require('celebrate');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose');
 const router = require('./routes/index');
-const NotFoundError = require('./errors/not-found-err');
 const errorHandler = require('./middlewares/error-handler');
 const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-
 
 const app = express();
 
@@ -40,10 +39,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(router);
 app.use(errors());
-
-app.use("/*", (req, res, next) => {
-  next(new NotFoundError('Страница не найдена'));
-});
 
 app.use(errorLogger);
 app.use(errorHandler);
