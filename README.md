@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.136.95
+IP 158.160.136.95
 
 Frontend https://igor.nomoredomainsmonster.ru
 
