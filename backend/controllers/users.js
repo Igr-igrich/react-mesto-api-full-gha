@@ -108,7 +108,7 @@ const updateUser = async (req, res, next) => {
     return res.send(user);
   } catch (error) {
     if (error.name === 'ValidationError') {
-      return next(new BadRequestError('Ошибка dвалидации полей'));
+      return next(new BadRequestError('Ошибка валидации полей'));
     }
     return next(error);
   }
